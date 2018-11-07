@@ -2,7 +2,7 @@ const express = require('express');
 const ytdl = require('ytdl-core');
 const app = express();
 
-app.get('/:videoId', function (req, res) {
+app.get('/get-mp3/:videoId', function (req, res) {
 
   const videoUrl = 'https://www.youtube.com/watch?v=' + req.params.videoId;
   const destDir = __dirname;
