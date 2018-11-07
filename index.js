@@ -12,12 +12,17 @@ app.get('/get-mp3/:videoId', function (req, res) {
 
   var videoReadableStream = ytdl(videoUrl, { filter: 'audioonly'});
 
-   ytdl.getInfo(videoUrl, function(err, info){
-     var videoName = info.title.replace('|','').toString('ascii');
+  try {
+    ytdl.getInfo(videoUrl, function(err, info){
+       var videoName = info.title.replace('|','').toString('ascii');
 
-     videoReadableStream.on('end', () => res.end(videoReadableStream));
-     videoReadableStream.pipe(res);
- });
+       videoReadableStream.on('end', () => res.end(videoReadableStream));
+       videoReadableStream.pipe(res);
+   });
+ } catch (exception) {
+   console.log(exception);
+   resn.end("Error");
+ }
 
 });
 
