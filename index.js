@@ -3,6 +3,6 @@ const app = express();
 
 app.get('/:videoId', function (req, res) {
 
-  res.send(res.params);
+  res.send(req.params);
 
 });
