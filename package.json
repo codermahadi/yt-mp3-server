@@ -1,0 +1,19 @@
+{
+  "name": "mp3-api",
+  "version": "1.0.0",
+  "description": "youtube mp3 api",
+  "engines": {
+    "node": "10.11.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "keywords": [
+  ],
+  "license": "MIT"
+}
