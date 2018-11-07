@@ -1,1 +1,8 @@
-console.log("ananın amı heroku");
+const express = require('express');
+const app = express();
+
+app.get('/:videoId', function (req, res) {
+
+  res.send(res.params);
+
+});
