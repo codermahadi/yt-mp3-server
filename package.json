@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "express": "^4.16.4",
-    "youtube-mp3-downloader": "^0.5.3"
+    "ytdl-core": "^0.28.0"
   },
   "devDependencies": {},
   "keywords": [],
