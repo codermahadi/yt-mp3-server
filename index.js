@@ -1,6 +1,8 @@
 const express = require('express');
 const ytdl = require('ytdl-core');
 const fs = require('fs');
+var through = require('through');
+
 const app = express();
 
 app.get('/get-mp3/:videoId', function (req, res) {
@@ -13,16 +15,14 @@ app.get('/get-mp3/:videoId', function (req, res) {
    ytdl.getInfo(videoUrl, function(err, info){
      var videoName = info.title.replace('|','').toString('ascii');
 
-     var videoWritableStream = fs.createWriteStream(destDir + '\\' + videoName + '.mp3');
-
-     var stream = videoReadableStream.pipe(videoWritableStream);
-
-     stream.on('finish', function() {
-         res.writeHead(204);
-         res.end();
-     });
+     videoReadableStream.on('end', () => res.end(videoReadableStream));
+     videoReadableStream.pipe(res);
  });
 
 });
 
-app.listen(process.env.PORT);
+const port = process.env.PORT ? process.env.PORT : 8080;
+
+app.listen(port, function () {
+  console.log('http://localhost:' + port);
+});

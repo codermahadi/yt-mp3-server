@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "express": "^4.16.4",
+    "through": "^2.3.8",
     "ytdl-core": "^0.28.0"
   },
   "devDependencies": {},
