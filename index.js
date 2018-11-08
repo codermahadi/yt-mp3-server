@@ -8,11 +8,9 @@ const app = express();
 app.get('/get-mp3/:videoId', function (req, res) {
 
   const videoUrl = 'https://www.youtube.com/watch?v=' + req.params.videoId;
-  const destDir = __dirname;
-
-  var videoReadableStream = ytdl(videoUrl, { filter: 'audioonly'});
-
   try {
+    var videoReadableStream = ytdl(videoUrl, { filter: 'audioonly'});
+
     ytdl.getInfo(videoUrl, function(err, info){
        var videoName = info.title.replace('|','').toString('ascii');
 
